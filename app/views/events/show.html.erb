@@ -1,0 +1,42 @@
+<div class="panel panel-primary">
+  <div class="panel-heading"><%= @event.listing_name %></div>
+
+  <div class="panel-body">
+
+
+    <p>Host: <%= @event.user.email %></p>
+
+    <!-- Main Info -->
+    <h4>Takes place: <%= @event.starts_at.strftime("On %d/%m/%Y") %></p>
+      <%if @event.includes_food%>
+      <p>Includes food!</p>
+      <%end%>
+      <% if @event.includes_drinks%>
+      <p>Includes drinks!</p>
+      <%end%>
+
+    <!-- About -->
+    <h4>About</h4>
+  <p>Description: <%= @event.description %></p>
+
+    <!-- Amenities -->
+    <h4>Amenities</h4>
+    <!-- <ul class="amenities"> -->
+      <!-- <li><%= !@room.has_tv ? ("<s>TV</s>").html_safe : "TV" %></li>
+      <li><%= !@room.has_kitchen ? ("<del>Kitchen</del>").html_safe : "Kitchen" %></li>
+      <li><%= !@room.has_internet ? ("<del>Internet</del>").html_safe : "Internet" %></li>
+      <li><%= !@room.has_heating ? ("<del>Heating</del>").html_safe : "Heating" %></li>
+      <li><%= !@room.has_airco ? ("<del>Air Conditioning</del>").html_safe : "Air Conditioning" %></li> -->
+    <!-- </ul> -->
+
+  </div>
+
+</div>
+
+<!-- Categories -->
+   <h4>Categories</h4>
+   <% @categories.each do |category| %>
+   <span class="label label-success"><%= category.name %></span>
+   <% end %>
+
+<%= link_to "Back", event_path, class: "btn btn-default" %>
